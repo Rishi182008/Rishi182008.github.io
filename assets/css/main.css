@@ -3217,78 +3217,69 @@ input, select, textarea {
 	}
 
 /* Wrapper */
-#wrapper {
-    -moz-transition: opacity 0.5s ease;
-    -webkit-transition: opacity 0.5s ease;
-    -ms-transition: opacity 0.5s ease;
-    transition: opacity 0.5s ease;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
+	#wrapper {
+		-moz-transition: opacity 0.5s ease;
+		-webkit-transition: opacity 0.5s ease;
+		-ms-transition: opacity 0.5s ease;
+		transition: opacity 0.5s ease;
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+	}
+This is the written code how can i change the look for my phone since when seen via mibile the bg img looks v v enlarged
+		#wrapper > .bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #212931;
+			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.png");
+			background-size: auto,								auto,														100% auto;
+			background-position: center,								center,														top center;
+			background-repeat: repeat,								no-repeat,													no-repeat;
+			background-attachment: scroll,								scroll,														scroll;
+			z-index: -1;
+		}
 
-#wrapper > .bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #212931;
-    background-image: 
-        url("../../images/overlay.png"), 
-        linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
-        url("../../images/bg.png");
-    background-size: auto, auto, cover; /* main bg covers container */
-    background-position: center, center, top center;
-    background-repeat: repeat, no-repeat, no-repeat;
-    background-attachment: scroll, scroll, scroll;
-    z-index: -1;
-}
+			#wrapper > .bg.fixed {
+				position: fixed;
+				width: 100vw;
+				height: 100vh;
+			}
 
-#wrapper > .bg.fixed {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
+		#wrapper.fade-in:before {
+			pointer-events: none;
+			-moz-transition: opacity 1s ease-in-out;
+			-webkit-transition: opacity 1s ease-in-out;
+			-ms-transition: opacity 1s ease-in-out;
+			transition: opacity 1s ease-in-out;
+			-moz-transition-delay: 0.75s;
+			-webkit-transition-delay: 0.75s;
+			-ms-transition-delay: 0.75s;
+			transition-delay: 0.75s;
+			background: #1e252d;
+			content: '';
+			display: block;
+			height: 100%;
+			left: 0;
+			opacity: 0;
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
 
-#wrapper.fade-in:before {
-    pointer-events: none;
-    -moz-transition: opacity 1s ease-in-out;
-    -webkit-transition: opacity 1s ease-in-out;
-    -ms-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
-    -moz-transition-delay: 0.75s;
-    -webkit-transition-delay: 0.75s;
-    -ms-transition-delay: 0.75s;
-    transition-delay: 0.75s;
-    background: #1e252d;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
+		body.is-preload #wrapper.fade-in:before {
+			opacity: 1;
+		}
 
-body.is-preload #wrapper.fade-in:before {
-    opacity: 1;
-}
+		@media screen and (orientation: portrait) {
 
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
-    #wrapper > .bg {
-        background-size: auto, auto, cover; /* main bg fills screen nicely */
-        background-position: center center; /* center it on mobile */
-    }
+			#wrapper > .bg {
+				background-size: auto,								auto,														auto 175%;
+			}
 
-    #wrapper > .bg.fixed {
-        position: absolute; /* fixed can be buggy on mobile */
-        width: 100%;
-        height: 100%;
-    }
-}
+		}
 
 /* Intro */
 
@@ -4696,4 +4687,5 @@ body.is-preload #wrapper.fade-in:before {
 		}
 
 	}
+
 
