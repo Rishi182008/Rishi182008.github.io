@@ -1,11 +1,614 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Study Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LaunchPad — Engineering, Mathematics & Science</title>
+
+    <meta name="description"
+          content="LaunchPad is an open learning platform for engineering, mathematics and science.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: #f7f8fa;
+            color: #111827;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 7%;
+
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+            color: #111827;
+        }
+
+        .logo span {
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 78vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 80px 7%;
+
+            background:
+                radial-gradient(circle at 80% 20%, #dbeafe 0%, transparent 30%),
+                radial-gradient(circle at 20% 80%, #e0e7ff 0%, transparent 28%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 7px 14px;
+            margin-bottom: 22px;
+
+            border-radius: 999px;
+
+            background: #dbeafe;
+            color: #1d4ed8;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 680px;
+
+            font-size: 20px;
+            color: #4b5563;
+
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 22px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            background: white;
+            color: #111827;
+            border: 1px solid #d1d5db;
+        }
+
+        .secondary:hover {
+            border-color: #2563eb;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        /* SUBJECTS */
+
+        .subject-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .subject-card {
+            padding: 30px;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+
+            text-decoration: none;
+            color: inherit;
+
+            transition: 0.25s;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            border-color: #93c5fd;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+        .subject-icon {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .subject-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .subject-card p {
+            color: #6b7280;
+        }
+
+        /* CONTENT TYPES */
+
+        .content-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .content-card {
+            background: white;
+
+            padding: 28px;
+
+            border-radius: 16px;
+
+            border: 1px solid #e5e7eb;
+        }
+
+        .content-card .icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .content-card p {
+            color: #6b7280;
+        }
+
+        /* CTA */
+
+        .cta {
+            margin: 20px 7% 90px;
+
+            padding: 65px 40px;
+
+            border-radius: 24px;
+
+            background: #111827;
+            color: white;
+
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 28px;
+
+            color: #d1d5db;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 35px 7%;
+
+            border-top: 1px solid #e5e7eb;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 70vh;
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .subject-grid,
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .cta {
+                margin: 10px 6% 60px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Welcome to My Study Website 🚀</h1>
-    <p>Notes, concepts, questions and resources — all in one place.</p>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="#" class="logo">
+            Launch<span>Pad</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#content">Content</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ENGINEERING • MATHEMATICS • SCIENCE
+            </div>
+
+            <h1>
+                Learn.<br>
+                Understand.<br>
+                <span>Launch.</span>
+            </h1>
+
+            <p>
+                LaunchPad is a growing open knowledge platform for
+                engineering, mathematics and science — built around
+                concepts worth understanding, not just memorising.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#explore" class="button primary">
+                    Explore Topics →
+                </a>
+
+                <a href="#content" class="button secondary">
+                    What you'll find
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- EXPLORE -->
+
+    <section id="explore">
+
+        <div class="section-heading">
+
+            <h2>Explore knowledge.</h2>
+
+            <p>
+                From engineering fundamentals to mathematics and
+                science, find concepts explained clearly and visually.
+            </p>
+
+        </div>
+
+
+        <div class="subject-grid">
+
+            <a href="#" class="subject-card">
+
+                <div class="subject-icon">⚙️</div>
+
+                <h3>Engineering</h3>
+
+                <p>
+                    Mechanical, aerospace, electrical, electronics,
+                    computer science and more.
+                </p>
+
+            </a>
+
+
+            <a href="#" class="subject-card">
+
+                <div class="subject-icon">📐</div>
+
+                <h3>Mathematics</h3>
+
+                <p>
+                    Calculus, linear algebra, differential equations,
+                    probability and engineering mathematics.
+                </p>
+
+            </a>
+
+
+            <a href="#" class="subject-card">
+
+                <div class="subject-icon">🔬</div>
+
+                <h3>Science</h3>
+
+                <p>
+                    Physics, chemistry and the scientific foundations
+                    behind engineering.
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <section id="content">
+
+        <div class="section-heading">
+
+            <h2>More than just notes.</h2>
+
+            <p>
+                Every concept can be explored in the format that
+                works best for you.
+            </p>
+
+        </div>
+
+
+        <div class="content-grid">
+
+            <div class="content-card">
+
+                <div class="icon">📖</div>
+
+                <h3>Articles</h3>
+
+                <p>
+                    Detailed explanations that go beyond definitions
+                    and actually build understanding.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="icon">🎥</div>
+
+                <h3>Short Videos</h3>
+
+                <p>
+                    Quick visual explanations for concepts that
+                    deserve a simple introduction.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="icon">📐</div>
+
+                <h3>Diagrams</h3>
+
+                <p>
+                    Visual explanations, graphs, illustrations and
+                    engineering sketches.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="icon">📄</div>
+
+                <h3>Resources</h3>
+
+                <p>
+                    Formula sheets, notes, PDFs and useful learning
+                    material.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="icon">🧠</div>
+
+                <h3>Questions</h3>
+
+                <p>
+                    Conceptual and numerical questions to test whether
+                    you actually understood the topic.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="icon">🚀</div>
+
+                <h3>Learn & Launch</h3>
+
+                <p>
+                    Learn something, understand it deeply, and share
+                    that knowledge with others.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT / CTA -->
+
+    <div class="cta" id="about">
+
+        <h2>Knowledge should move.</h2>
+
+        <p>
+            LaunchPad is built to turn things we learn into
+            knowledge that other people can actually use.
+        </p>
+
+        <a href="#explore" class="button primary">
+            Start Exploring
+        </a>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            © 2026 LaunchPad
+        </div>
+
+        <div>
+            Engineering • Mathematics • Science
+        </div>
+
+    </footer>
+
 </body>
 </html>
