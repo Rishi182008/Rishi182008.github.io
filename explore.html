@@ -1,349 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Explore — LaunchPad</title>
 
-    <meta name="description"
-          content="Explore engineering, mathematics and science topics on LaunchPad.">
-
     <link rel="stylesheet" href="css/style.css">
-
 </head>
-
 
 <body>
 
+    <!-- Navigation -->
+    <nav class="navbar">
 
-<!-- NAVIGATION -->
+        <div class="nav-container">
 
-<nav>
-
-    <a href="index.html" class="logo">
-        Launch<span>Pad</span>
-    </a>
-
-    <ul class="nav-links">
-
-        <li>
-            <a href="index.html">
-                Home
+            <a href="index.html" class="logo">
+                LaunchPad
             </a>
-        </li>
 
-        <li>
-            <a href="explore.html">
-                Explore
-            </a>
-        </li>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="explore.html" class="active">Explore</a>
+                <a href="#">About</a>
+            </div>
 
-        <li>
-            <a href="#">
-                Articles
-            </a>
-        </li>
+        </div>
 
-        <li>
-            <a href="#">
-                Videos
-            </a>
-        </li>
-
-        <li>
-            <a href="#">
-                Resources
-            </a>
-        </li>
-
-    </ul>
-
-</nav>
+    </nav>
 
 
-<!-- PAGE HEADER -->
+    <!-- Explore Header -->
+    <header class="explore-header">
 
-<header class="page-header">
+        <span class="hero-badge">
+            LAUNCHPAD KNOWLEDGE BASE
+        </span>
 
-    <div class="badge">
-        LAUNCHPAD KNOWLEDGE BASE
-    </div>
+        <h1>
+            Explore.
+        </h1>
 
-    <h1>
-        Explore.
-    </h1>
+        <p>
+            Choose a course and learn through structured lectures,
+            with everything you need for each concept in one place.
+        </p>
 
-    <p>
-        Explore concepts across engineering, mathematics and
-        science. This library will grow as new topics are added.
-    </p>
-
-</header>
-
-
-<!-- =========================
-     ENGINEERING
-========================= -->
-
-<section>
-
-    <div class="category">
-
-        <h2>
-            ⚙️ Engineering
-        </h2>
+    </header>
 
 
-        <div class="topic-grid">
+    <!-- Courses -->
+    <main class="courses-section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                COURSES
+            </span>
+
+            <h2>
+                Start learning.
+            </h2>
+
+            <p>
+                More courses will be added as the LaunchPad library grows.
+            </p>
+
+        </div>
 
 
-            <a href="#"
-               class="topic-card">
+        <div class="course-grid">
+
+
+            <!-- Introduction to C -->
+            <a href="courses/introduction-to-c/index.html"
+               class="course-card">
+
+                <div class="course-card-top">
+
+                    <span class="course-number">
+                        COURSE 01
+                    </span>
+
+                    <span class="course-arrow">
+                        →
+                    </span>
+
+                </div>
 
                 <h3>
-                    Mechanical Engineering
+                    Introduction to C Programming
                 </h3>
 
                 <p>
-                    Mechanics, thermodynamics, manufacturing,
-                    materials and more.
+                    Learn the fundamentals of C programming, from basic
+                    syntax and data types to functions, pointers,
+                    memory and beyond.
                 </p>
+
+                <div class="course-meta">
+                    <span>Programming</span>
+                    <span>•</span>
+                    <span>Coming soon</span>
+                </div>
 
             </a>
 
 
-            <a href="#"
-               class="topic-card">
+            <!-- Future course -->
+            <div class="course-card course-card-placeholder">
+
+                <div class="course-card-top">
+
+                    <span class="course-number">
+                        MORE COMING
+                    </span>
+
+                </div>
 
                 <h3>
-                    Aerospace Engineering
+                    Your next course
                 </h3>
 
                 <p>
-                    Aerodynamics, propulsion, flight mechanics,
-                    space technology and more.
+                    New courses will appear here as LaunchPad grows.
                 </p>
 
-            </a>
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Electrical Engineering
-                </h3>
-
-                <p>
-                    Electrical systems, machines, power and
-                    engineering fundamentals.
-                </p>
-
-            </a>
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Electronics
-                </h3>
-
-                <p>
-                    Circuits, semiconductors, signals and
-                    electronic systems.
-                </p>
-
-            </a>
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Computer Science
-                </h3>
-
-                <p>
-                    Programming, algorithms, data structures
-                    and computing concepts.
-                </p>
-
-            </a>
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Engineering Fundamentals
-                </h3>
-
-                <p>
-                    Core concepts that connect multiple
-                    engineering disciplines.
-                </p>
-
-            </a>
+            </div>
 
 
         </div>
 
-    </div>
+    </main>
 
 
-<!-- =========================
-     MATHEMATICS
-========================= -->
+    <!-- Footer -->
+    <footer class="footer">
 
+        <p>
+            © 2026 LaunchPad
+        </p>
 
-    <div class="category">
+        <p>
+            Engineering • Mathematics • Science
+        </p>
 
-        <h2>
-            📐 Mathematics
-        </h2>
-
-
-        <div class="topic-grid">
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Calculus
-                </h3>
-
-                <p>
-                    Limits, differentiation, integration and
-                    applications.
-                </p>
-
-            </a>
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Linear Algebra
-                </h3>
-
-                <p>
-                    Vectors, matrices, transformations and
-                    linear systems.
-                </p>
-
-            </a>
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Differential Equations
-                </h3>
-
-                <p>
-                    Ordinary and engineering differential
-                    equations.
-                </p>
-
-            </a>
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Probability & Statistics
-                </h3>
-
-                <p>
-                    Probability, distributions, statistics
-                    and data analysis.
-                </p>
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-
-<!-- =========================
-     SCIENCE
-========================= -->
-
-
-    <div class="category">
-
-        <h2>
-            🔬 Science
-        </h2>
-
-
-        <div class="topic-grid">
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Physics
-                </h3>
-
-                <p>
-                    The physical principles behind the world
-                    and engineering.
-                </p>
-
-            </a>
-
-
-            <a href="#"
-               class="topic-card">
-
-                <h3>
-                    Chemistry
-                </h3>
-
-                <p>
-                    Chemistry concepts relevant to science
-                    and engineering.
-                </p>
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div>
-        © 2026 LaunchPad
-    </div>
-
-    <div>
-        Engineering • Mathematics • Science
-    </div>
-
-</footer>
-
+    </footer>
 
 </body>
-
 </html>
